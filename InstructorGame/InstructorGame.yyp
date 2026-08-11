@@ -65,6 +65,7 @@
     {"id":{"name":"ui_replayButton","path":"objects/ui_replayButton/ui_replayButton.yy",},},
     {"id":{"name":"ui_resumeButton","path":"objects/ui_resumeButton/ui_resumeButton.yy",},},
     {"id":{"name":"ui_rightButton","path":"objects/ui_rightButton/ui_rightButton.yy",},},
+    {"id":{"name":"ui_sellPrizeButton","path":"objects/ui_sellPrizeButton/ui_sellPrizeButton.yy",},},
     {"id":{"name":"ui_transferRoomButton","path":"objects/ui_transferRoomButton/ui_transferRoomButton.yy",},},
     {"id":{"name":"UIManager","path":"objects/UIManager/UIManager.yy",},},
     {"id":{"name":"particle_prizeWin","path":"particles/particle_prizeWin/particle_prizeWin.yy",},},

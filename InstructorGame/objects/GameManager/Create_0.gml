@@ -1,5 +1,21 @@
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
+/// @DnDHash : 2C556B4E
+/// @DnDArgument : "funcName" "sellItem"
+/// @DnDArgument : "arg" "prizeName, variant, amount"
+function sellItem(prizeName, variant, amount) {	/// @DnDAction : YoYo Games.Common.Execute_Code
+	/// @DnDVersion : 1
+	/// @DnDHash : 0E50F67F
+	/// @DnDParent : 2C556B4E
+	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)var prizeValue = global.itemDatabase[$prizeName].value;$(13_10)$(13_10)addMoney(prizeValue); $(13_10)DataManager.reduceInventoryAmount(prizeName, variant, amount); "
+	/// @description Execute Code
+	var prizeValue = global.itemDatabase[$prizeName].value;
+	
+	addMoney(prizeValue); 
+	DataManager.reduceInventoryAmount(prizeName, variant, amount);}
+
+/// @DnDAction : YoYo Games.Common.Function
+/// @DnDVersion : 1
 /// @DnDHash : 716BEBF8
 /// @DnDArgument : "funcName" "addMoney"
 /// @DnDArgument : "arg" "amount"

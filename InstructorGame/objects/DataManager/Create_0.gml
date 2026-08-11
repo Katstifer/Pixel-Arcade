@@ -1,9 +1,9 @@
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
 /// @DnDHash : 708A5E87
-/// @DnDArgument : "funcName" "reduceAmount"
+/// @DnDArgument : "funcName" "reduceInventoryAmount"
 /// @DnDArgument : "arg" "prizeName, variant, amount"
-function reduceAmount(prizeName, variant, amount) {	/// @DnDAction : YoYo Games.Common.Execute_Code
+function reduceInventoryAmount(prizeName, variant, amount) {	/// @DnDAction : YoYo Games.Common.Execute_Code
 	/// @DnDVersion : 1
 	/// @DnDHash : 60C75C91
 	/// @DnDParent : 708A5E87
