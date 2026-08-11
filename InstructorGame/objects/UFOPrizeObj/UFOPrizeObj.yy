@@ -1,0 +1,51 @@
+{
+  "$GMObject":"",
+  "%Name":"UFOPrizeObj",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"UFOPrizeObj",
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_prize_parent","path":"objects/obj_prize_parent/obj_prize_parent.yy",},"propertyId":{"name":"requiredStrength","path":"objects/obj_prize_parent/obj_prize_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"7",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_prize_parent","path":"objects/obj_prize_parent/obj_prize_parent.yy",},"propertyId":{"name":"dbName","path":"objects/obj_prize_parent/obj_prize_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"ufo\"",},
+  ],
+  "parent":{
+    "name":"Prize Children",
+    "path":"folders/Objects/Prize Children.yy",
+  },
+  "parentObjectId":{
+    "name":"obj_prize_parent",
+    "path":"objects/obj_prize_parent/obj_prize_parent.yy",
+  },
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[
+    {"x":15.0,"y":19.0,},
+    {"x":48.0,"y":19.0,},
+    {"x":48.0,"y":46.0,},
+    {"x":15.0,"y":46.0,},
+  ],
+  "physicsStartAwake":true,
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"sprites","filters":[],"listItems":[],"multiselect":false,"name":"sprites","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2","varType":1,},
+  ],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"sprite_cranePrizeUFO",
+    "path":"sprites/sprite_cranePrizeUFO/sprite_cranePrizeUFO.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}
