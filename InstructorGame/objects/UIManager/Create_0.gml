@@ -1,11 +1,72 @@
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
-/// @DnDHash : 4AF849C6
-function MyFunctionName() {	/// @DnDAction : YoYo Games.Common.Execute_Code
+/// @DnDHash : 3445DA47
+/// @DnDArgument : "funcName" "populatePrizeMenu"
+function populatePrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
 	/// @DnDVersion : 1
-	/// @DnDHash : 08E2955B
-	/// @DnDParent : 4AF849C6
-	/// @DnDArgument : "code" ""}
+	/// @DnDHash : 38304D1B
+	/// @DnDParent : 3445DA47
+	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)/// @description Execute Code$(13_10)//For each entry in player inventory$(13_10)	//For each variant that has more than 0 collects$(13_10)	//Display with information $(13_10) var keys = variable_struct_get_names(global.playerInventory);$(13_10) var length = array_length(keys);$(13_10) $(13_10) prizeScrollOffset = 0; $(13_10) prizeArray = []; $(13_10) $(13_10) var panelIndex = 0;$(13_10) var panelRow = 0;$(13_10) var panelColumn = 0; $(13_10) $(13_10) for (var i = 0; i < length; i++){$(13_10)	 $(13_10)	 var inventoryItem = global.playerInventory[$keys[i]];$(13_10)	 $(13_10)	 for (var j = 0; j < 3; j++){$(13_10)		//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);$(13_10)	$(13_10)		 if (inventoryItem[j] > 0){$(13_10)			 $(13_10)			 var xPosition =  92 + (panelColumn * 158) + (panelColumn + 1)*13; $(13_10)			 //Calculated X position + margin increments$(13_10)			 $(13_10)			 var yPosition = (panelRow * 240) + (panelRow * 13) + 240 + prizeScrollOffset; $(13_10)			 //Calculated Y position + Margin + top margin + offset based off scroll$(13_10)			 $(13_10)			 var newEntry = instance_create_layer($(13_10)			 xPosition, $(13_10)			 yPosition, $(13_10)			 "Instances", $(13_10)			 ui_prizeEntry,$(13_10)				{$(13_10)					prizeName: keys[i],$(13_10)					variant: j$(13_10)				}$(13_10)			 );$(13_10)			$(13_10)$(13_10)			 array_push(prizeArray, newEntry);$(13_10)			 $(13_10)			 panelIndex++;$(13_10)			 $(13_10)			 if (panelIndex%2 == 0){$(13_10)					panelRow++; $(13_10)					panelColumn = 0; $(13_10)			 }$(13_10)			 else {$(13_10)					panelColumn++; $(13_10)			 }$(13_10)				 $(13_10)		 }$(13_10)	 }$(13_10)	 $(13_10) }$(13_10) $(13_10) show_debug_message("done creating prize entries");"
+	/// @description Execute Code
+	/// @description Execute Code
+	//For each entry in player inventory
+		//For each variant that has more than 0 collects
+		//Display with information 
+	 var keys = variable_struct_get_names(global.playerInventory);
+	 var length = array_length(keys);
+	 
+	 prizeScrollOffset = 0; 
+	 prizeArray = []; 
+	 
+	 var panelIndex = 0;
+	 var panelRow = 0;
+	 var panelColumn = 0; 
+	 
+	 for (var i = 0; i < length; i++){
+		 
+		 var inventoryItem = global.playerInventory[$keys[i]];
+		 
+		 for (var j = 0; j < 3; j++){
+			//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);
+		
+			 if (inventoryItem[j] > 0){
+				 
+				 var xPosition =  92 + (panelColumn * 158) + (panelColumn + 1)*13; 
+				 //Calculated X position + margin increments
+				 
+				 var yPosition = (panelRow * 240) + (panelRow * 13) + 240 + prizeScrollOffset; 
+				 //Calculated Y position + Margin + top margin + offset based off scroll
+				 
+				 var newEntry = instance_create_layer(
+				 xPosition, 
+				 yPosition, 
+				 "Instances", 
+				 ui_prizeEntry,
+					{
+						prizeName: keys[i],
+						variant: j
+					}
+				 );
+				
+	
+				 array_push(prizeArray, newEntry);
+				 
+				 panelIndex++;
+				 
+				 if (panelIndex%2 == 0){
+						panelRow++; 
+						panelColumn = 0; 
+				 }
+				 else {
+						panelColumn++; 
+				 }
+					 
+			 }
+		 }
+		 
+	 }
+	 
+	 show_debug_message("done creating prize entries");}
 
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
@@ -16,80 +77,36 @@ function generatePrizeContainer(prizeName, variant) {	/// @DnDAction : YoYo Ga
 	/// @DnDVersion : 1
 	/// @DnDHash : 064CDB06
 	/// @DnDParent : 69291E4E
-	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)var prizeAmount = global.playerInventory[$prizeName][$variant]$(13_10)var mainPanelName = "prizeContainer_" + prizeName + string(variant); $(13_10)var sprite = global.itemDatabase[$prizeName].sprite; $(13_10)var displayName = global.itemDatabase[$prizeName].displayName;$(13_10)var amountText =  ("Owned: " + string(prizeAmount));$(13_10)$(13_10)var spriteElement = {$(13_10)	type: "Sprite", $(13_10)	spriteIndex: sprite,$(13_10)	spriteImageIndex: variant,$(13_10)	spriteImageSpeed: 0,$(13_10)	spriteImageXscale: 1, $(13_10)	spriteImageYscale: 1, $(13_10)	spriteImageAngle: 0,$(13_10)	spriteImageBlend: c_white, $(13_10)	spriteImageAlpha: 1$(13_10)};$(13_10)$(13_10)var displayNameElement = {$(13_10)	type: "Text",$(13_10)	textText: string(displayName),$(13_10)	textFontIndex: Jersey_24P, $(13_10)	textColour: c_white, $(13_10)	textHalign: fa_center, $(13_10)	textValign: fa_middle$(13_10)};$(13_10)$(13_10)var amountElement = {$(13_10)	type: "Text",$(13_10)	textText: string(amountText),$(13_10)	textFontIndex: Jersey_18P, $(13_10)	textColour: c_white, $(13_10)	textValign: fa_center, $(13_10)	textHalign: fa_middle,$(13_10)};$(13_10)$(13_10)var containerPanel = flexpanel_create_node({$(13_10)$(13_10)width: "45%",$(13_10)height: "auto",$(13_10)flexDirection: "column",$(13_10)flexWrap: "wrap",$(13_10)gapRow: 10,$(13_10)gapColumn: 10,$(13_10)nodes: [$(13_10)	{$(13_10)		width: "auto",$(13_10)		layerElements: [spriteElement]$(13_10)	},$(13_10)	{$(13_10)		width: "auto",$(13_10)		layerElements: [displayNameElement]$(13_10)	},$(13_10)	{$(13_10)		width: "auto",$(13_10)		layerElements: [amountElement]$(13_10)	}]$(13_10)});$(13_10)$(13_10)$(13_10)$(13_10)return containerPanel; "
-	/// @description Execute Code
-	var prizeAmount = global.playerInventory[$prizeName][$variant]
-	var mainPanelName = "prizeContainer_" + prizeName + string(variant); 
-	var sprite = global.itemDatabase[$prizeName].sprite; 
-	var displayName = global.itemDatabase[$prizeName].displayName;
-	var amountText =  ("Owned: " + string(prizeAmount));
+	/// @DnDArgument : "code" "$(13_10)    var containerPanel = flexpanel_create_node({$(13_10)        width: "158",$(13_10)        height: "240",$(13_10)$(13_10)        layerElements: [$(13_10)            {$(13_10)                type: "Instance",$(13_10)                instanceObjectIndex: ui_prizeEntry,$(13_10)                instanceVariables: {$(13_10)                    prizeName: prizeName,$(13_10)                    variant: variant$(13_10)                }$(13_10)            }$(13_10)        ]$(13_10)    });$(13_10)	$(13_10)	show_debug_message("Returning panel");$(13_10)	return containerPanel; "
 	
-	var spriteElement = {
-		type: "Sprite", 
-		spriteIndex: sprite,
-		spriteImageIndex: variant,
-		spriteImageSpeed: 0,
-		spriteImageXscale: 1, 
-		spriteImageYscale: 1, 
-		spriteImageAngle: 0,
-		spriteImageBlend: c_white, 
-		spriteImageAlpha: 1
-	};
+	    var containerPanel = flexpanel_create_node({
+	        width: "158",
+	        height: "240",
 	
-	var displayNameElement = {
-		type: "Text",
-		textText: string(displayName),
-		textFontIndex: Jersey_24P, 
-		textColour: c_white, 
-		textHalign: fa_center, 
-		textValign: fa_middle
-	};
-	
-	var amountElement = {
-		type: "Text",
-		textText: string(amountText),
-		textFontIndex: Jersey_18P, 
-		textColour: c_white, 
-		textValign: fa_center, 
-		textHalign: fa_middle,
-	};
-	
-	var containerPanel = flexpanel_create_node({
-	
-	width: "45%",
-	height: "auto",
-	flexDirection: "column",
-	flexWrap: "wrap",
-	gapRow: 10,
-	gapColumn: 10,
-	nodes: [
-		{
-			width: "auto",
-			layerElements: [spriteElement]
-		},
-		{
-			width: "auto",
-			layerElements: [displayNameElement]
-		},
-		{
-			width: "auto",
-			layerElements: [amountElement]
-		}]
-	});
-	
-	
-	
-	return containerPanel;}
+	        layerElements: [
+	            {
+	                type: "Instance",
+	                instanceObjectIndex: ui_prizeEntry,
+	                instanceVariables: {
+	                    prizeName: prizeName,
+	                    variant: variant
+	                }
+	            }
+	        ]
+	    });
+		
+		show_debug_message("Returning panel");
+		return containerPanel;}
 
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
 /// @DnDHash : 1854FA66
-/// @DnDArgument : "funcName" "populatePrizeMenu"
-function populatePrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
+/// @DnDArgument : "funcName" "oldPrizeMenu"
+function oldPrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
 	/// @DnDVersion : 1
 	/// @DnDHash : 18DB2708
 	/// @DnDParent : 1854FA66
-	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)//For each entry in player inventory$(13_10)	//For each variant that has more than 0 collects$(13_10)	//Display with information $(13_10)var UILayer = layer_get_flexpanel_node("UI_prize_menu");$(13_10)var containerPanel = flexpanel_node_get_child(UILayer, "panel_prizes");$(13_10)	$(13_10) var keys = variable_struct_get_names(global.playerInventory);$(13_10) var length = array_length(keys);$(13_10) $(13_10) for (var i = 0; i < length; i++){$(13_10)	 $(13_10)	 var inventoryItem = global.playerInventory[$keys[i]];$(13_10)	 $(13_10)	 for (var j = 0; j < 3; j++){$(13_10)		//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);$(13_10)	$(13_10)		 if (inventoryItem[$j] > 0){$(13_10)			 var addPanel = generatePrizeContainer(keys[i], j); $(13_10)			 flexpanel_node_insert_child(containerPanel, addPanel, 0);$(13_10)		 }$(13_10)	 }$(13_10)	 $(13_10) }"
+	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)//For each entry in player inventory$(13_10)	//For each variant that has more than 0 collects$(13_10)	//Display with information $(13_10)var UILayer = layer_get_flexpanel_node("UI_prize_menu");$(13_10)var containerPanel = flexpanel_node_get_child(UILayer, "panel_prizes");$(13_10)	$(13_10) var keys = variable_struct_get_names(global.playerInventory);$(13_10) var length = array_length(keys);$(13_10) $(13_10) var panelIndex = 0;$(13_10) $(13_10) for (var i = 0; i < length; i++){$(13_10)	 $(13_10)	 var inventoryItem = global.playerInventory[$keys[i]];$(13_10)	 $(13_10)	 for (var j = 0; j < 3; j++){$(13_10)		//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);$(13_10)	$(13_10)		 if (inventoryItem[j] > 0){$(13_10)			 $(13_10)			 var addPanel = generatePrizeContainer(keys[i], j); $(13_10)			 flexpanel_node_insert_child(containerPanel, addPanel, panelIndex);$(13_10)			 panelIndex++;$(13_10)			 $(13_10)		 }$(13_10)	 }$(13_10)	 $(13_10) }"
 	/// @description Execute Code
 	//For each entry in player inventory
 		//For each variant that has more than 0 collects
@@ -100,6 +117,8 @@ function populatePrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
 	 var keys = variable_struct_get_names(global.playerInventory);
 	 var length = array_length(keys);
 	 
+	 var panelIndex = 0;
+	 
 	 for (var i = 0; i < length; i++){
 		 
 		 var inventoryItem = global.playerInventory[$keys[i]];
@@ -107,9 +126,12 @@ function populatePrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
 		 for (var j = 0; j < 3; j++){
 			//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);
 		
-			 if (inventoryItem[$j] > 0){
+			 if (inventoryItem[j] > 0){
+				 
 				 var addPanel = generatePrizeContainer(keys[i], j); 
-				 flexpanel_node_insert_child(containerPanel, addPanel, 0);
+				 flexpanel_node_insert_child(containerPanel, addPanel, panelIndex);
+				 panelIndex++;
+				 
 			 }
 		 }
 		 
@@ -329,13 +351,13 @@ function showRoomUI(roomName) {	/// @DnDAction : YoYo Games.Common.Execute_Cod
 	/// @DnDVersion : 1
 	/// @DnDHash : 18DE3281
 	/// @DnDParent : 58F43A42
-	/// @DnDArgument : "code" "$(13_10)var layerName = string("UI_" + roomName);$(13_10)var layerID = layer_get_id(layerName); $(13_10)$(13_10)if (roomName == "prize_menu"){$(13_10)	populatePrizeMenu(); $(13_10)}$(13_10)$(13_10)if (global.roomDatabase[$roomName].type == "menu"){$(13_10)	updateMoneyNode(roomName); $(13_10)}$(13_10)$(13_10)layer_set_visible(layerID, true); $(13_10)"
+	/// @DnDArgument : "code" "$(13_10)var layerName = string("UI_" + roomName);$(13_10)var layerID = layer_get_id(layerName); $(13_10)$(13_10)if (roomName == "prize_menu"){$(13_10)	alarm[0] = 1; $(13_10)}$(13_10)$(13_10)if (global.roomDatabase[$roomName].type == "menu"){$(13_10)	updateMoneyNode(roomName); $(13_10)}$(13_10)$(13_10)layer_set_visible(layerID, true); $(13_10)"
 	
 	var layerName = string("UI_" + roomName);
 	var layerID = layer_get_id(layerName); 
 	
 	if (roomName == "prize_menu"){
-		populatePrizeMenu(); 
+		alarm[0] = 1; 
 	}
 	
 	if (global.roomDatabase[$roomName].type == "menu"){
