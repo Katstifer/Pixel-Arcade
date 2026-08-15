@@ -1,141 +1,32 @@
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
+/// @DnDHash : 1AFBD6C5
+/// @DnDArgument : "funcName" "resetPrizeMenu"
+function resetPrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
+	/// @DnDVersion : 1
+	/// @DnDHash : 6E167C13
+	/// @DnDParent : 1AFBD6C5
+	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)if (prizeMenu != noone){$(13_10)	prizeMenu.resetMenu(); $(13_10)	instance_destroy(prizeMenu);$(13_10)}"
+	/// @description Execute Code
+	if (prizeMenu != noone){
+		prizeMenu.resetMenu(); 
+		instance_destroy(prizeMenu);
+	}}
+
+/// @DnDAction : YoYo Games.Common.Function
+/// @DnDVersion : 1
 /// @DnDHash : 3445DA47
 /// @DnDArgument : "funcName" "populatePrizeMenu"
 function populatePrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
 	/// @DnDVersion : 1
 	/// @DnDHash : 38304D1B
 	/// @DnDParent : 3445DA47
-	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)/// @description Execute Code$(13_10)//For each entry in player inventory$(13_10)	//For each variant that has more than 0 collects$(13_10)	//Display with information $(13_10) var keys = variable_struct_get_names(global.playerInventory);$(13_10) var length = array_length(keys);$(13_10) $(13_10) prizeScrollOffset = 0; $(13_10) prizeArray = []; $(13_10) $(13_10) var panelIndex = 0;$(13_10) var panelRow = 0;$(13_10) var panelColumn = 0; $(13_10) $(13_10) for (var i = 0; i < length; i++){$(13_10)	 $(13_10)	 var inventoryItem = global.playerInventory[$keys[i]];$(13_10)	 $(13_10)	 for (var j = 0; j < 3; j++){$(13_10)		//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);$(13_10)	$(13_10)		 if (inventoryItem[j] > 0){$(13_10)			 $(13_10)			 var xPosition =  92 + (panelColumn * 158) + (panelColumn + 1)*13; $(13_10)			 //Calculated X position + margin increments$(13_10)			 $(13_10)			 var yPosition = (panelRow * 240) + (panelRow * 13) + 240 + prizeScrollOffset; $(13_10)			 //Calculated Y position + Margin + top margin + offset based off scroll$(13_10)			 $(13_10)			 var newEntry = instance_create_layer($(13_10)			 xPosition, $(13_10)			 yPosition, $(13_10)			 "Instances", $(13_10)			 ui_prizeEntry,$(13_10)				{$(13_10)					prizeName: keys[i],$(13_10)					variant: j$(13_10)				}$(13_10)			 );$(13_10)			$(13_10)$(13_10)			 array_push(prizeArray, newEntry);$(13_10)			 $(13_10)			 panelIndex++;$(13_10)			 $(13_10)			 if (panelIndex%2 == 0){$(13_10)					panelRow++; $(13_10)					panelColumn = 0; $(13_10)			 }$(13_10)			 else {$(13_10)					panelColumn++; $(13_10)			 }$(13_10)				 $(13_10)		 }$(13_10)	 }$(13_10)	 $(13_10) }$(13_10) $(13_10) show_debug_message("done creating prize entries");"
-	/// @description Execute Code
-	/// @description Execute Code
-	//For each entry in player inventory
-		//For each variant that has more than 0 collects
-		//Display with information 
-	 var keys = variable_struct_get_names(global.playerInventory);
-	 var length = array_length(keys);
-	 
-	 prizeScrollOffset = 0; 
-	 prizeArray = []; 
-	 
-	 var panelIndex = 0;
-	 var panelRow = 0;
-	 var panelColumn = 0; 
-	 
-	 for (var i = 0; i < length; i++){
-		 
-		 var inventoryItem = global.playerInventory[$keys[i]];
-		 
-		 for (var j = 0; j < 3; j++){
-			//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);
-		
-			 if (inventoryItem[j] > 0){
-				 
-				 var xPosition =  92 + (panelColumn * 158) + (panelColumn + 1)*13; 
-				 //Calculated X position + margin increments
-				 
-				 var yPosition = (panelRow * 240) + (panelRow * 13) + 240 + prizeScrollOffset; 
-				 //Calculated Y position + Margin + top margin + offset based off scroll
-				 
-				 var newEntry = instance_create_layer(
-				 xPosition, 
-				 yPosition, 
-				 "Instances", 
-				 ui_prizeEntry,
-					{
-						prizeName: keys[i],
-						variant: j
-					}
-				 );
-				
-	
-				 array_push(prizeArray, newEntry);
-				 
-				 panelIndex++;
-				 
-				 if (panelIndex%2 == 0){
-						panelRow++; 
-						panelColumn = 0; 
-				 }
-				 else {
-						panelColumn++; 
-				 }
-					 
-			 }
-		 }
-		 
-	 }
-	 
-	 show_debug_message("done creating prize entries");}
-
-/// @DnDAction : YoYo Games.Common.Function
-/// @DnDVersion : 1
-/// @DnDHash : 69291E4E
-/// @DnDArgument : "funcName" "generatePrizeContainer"
-/// @DnDArgument : "arg" "prizeName, variant"
-function generatePrizeContainer(prizeName, variant) {	/// @DnDAction : YoYo Games.Common.Execute_Code
-	/// @DnDVersion : 1
-	/// @DnDHash : 064CDB06
-	/// @DnDParent : 69291E4E
-	/// @DnDArgument : "code" "$(13_10)    var containerPanel = flexpanel_create_node({$(13_10)        width: "158",$(13_10)        height: "240",$(13_10)$(13_10)        layerElements: [$(13_10)            {$(13_10)                type: "Instance",$(13_10)                instanceObjectIndex: ui_prizeEntry,$(13_10)                instanceVariables: {$(13_10)                    prizeName: prizeName,$(13_10)                    variant: variant$(13_10)                }$(13_10)            }$(13_10)        ]$(13_10)    });$(13_10)	$(13_10)	show_debug_message("Returning panel");$(13_10)	return containerPanel; "
-	
-	    var containerPanel = flexpanel_create_node({
-	        width: "158",
-	        height: "240",
-	
-	        layerElements: [
-	            {
-	                type: "Instance",
-	                instanceObjectIndex: ui_prizeEntry,
-	                instanceVariables: {
-	                    prizeName: prizeName,
-	                    variant: variant
-	                }
-	            }
-	        ]
-	    });
-		
-		show_debug_message("Returning panel");
-		return containerPanel;}
-
-/// @DnDAction : YoYo Games.Common.Function
-/// @DnDVersion : 1
-/// @DnDHash : 1854FA66
-/// @DnDArgument : "funcName" "oldPrizeMenu"
-function oldPrizeMenu() {	/// @DnDAction : YoYo Games.Common.Execute_Code
-	/// @DnDVersion : 1
-	/// @DnDHash : 18DB2708
-	/// @DnDParent : 1854FA66
-	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)//For each entry in player inventory$(13_10)	//For each variant that has more than 0 collects$(13_10)	//Display with information $(13_10)var UILayer = layer_get_flexpanel_node("UI_prize_menu");$(13_10)var containerPanel = flexpanel_node_get_child(UILayer, "panel_prizes");$(13_10)	$(13_10) var keys = variable_struct_get_names(global.playerInventory);$(13_10) var length = array_length(keys);$(13_10) $(13_10) var panelIndex = 0;$(13_10) $(13_10) for (var i = 0; i < length; i++){$(13_10)	 $(13_10)	 var inventoryItem = global.playerInventory[$keys[i]];$(13_10)	 $(13_10)	 for (var j = 0; j < 3; j++){$(13_10)		//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);$(13_10)	$(13_10)		 if (inventoryItem[j] > 0){$(13_10)			 $(13_10)			 var addPanel = generatePrizeContainer(keys[i], j); $(13_10)			 flexpanel_node_insert_child(containerPanel, addPanel, panelIndex);$(13_10)			 panelIndex++;$(13_10)			 $(13_10)		 }$(13_10)	 }$(13_10)	 $(13_10) }"
-	/// @description Execute Code
-	//For each entry in player inventory
-		//For each variant that has more than 0 collects
-		//Display with information 
-	var UILayer = layer_get_flexpanel_node("UI_prize_menu");
-	var containerPanel = flexpanel_node_get_child(UILayer, "panel_prizes");
-		
-	 var keys = variable_struct_get_names(global.playerInventory);
-	 var length = array_length(keys);
-	 
-	 var panelIndex = 0;
-	 
-	 for (var i = 0; i < length; i++){
-		 
-		 var inventoryItem = global.playerInventory[$keys[i]];
-		 
-		 for (var j = 0; j < 3; j++){
-			//show_debug_message(keys[i] + " amount: " + global.playerInventory[keys[i]][j]);
-		
-			 if (inventoryItem[j] > 0){
-				 
-				 var addPanel = generatePrizeContainer(keys[i], j); 
-				 flexpanel_node_insert_child(containerPanel, addPanel, panelIndex);
-				 panelIndex++;
-				 
-			 }
-		 }
-		 
-	 }}
+	/// @DnDArgument : "code" "prizeMenu = instance_create_layer($(13_10)x,$(13_10)y,$(13_10)"Instances",$(13_10)ui_prizeMenu);"
+	prizeMenu = instance_create_layer(
+	x,
+	y,
+	"Instances",
+	ui_prizeMenu);}
 
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1

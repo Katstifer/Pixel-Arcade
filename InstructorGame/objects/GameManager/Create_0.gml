@@ -7,12 +7,14 @@ function sellItem(prizeName, variant, amount) {	/// @DnDAction : YoYo Games.Co
 	/// @DnDVersion : 1
 	/// @DnDHash : 0E50F67F
 	/// @DnDParent : 2C556B4E
-	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)var prizeValue = global.itemDatabase[$prizeName].value;$(13_10)$(13_10)addMoney(prizeValue); $(13_10)DataManager.reduceInventoryAmount(prizeName, variant, amount); "
+	/// @DnDArgument : "code" "/// @description Execute Code$(13_10)var prizeValue = global.itemDatabase[$prizeName].value;$(13_10)$(13_10)addMoney(prizeValue); $(13_10)DataManager.reduceInventoryAmount(prizeName, variant, amount); $(13_10)UIManager.resetPrizeMenu(); $(13_10)UIManager.populatePrizeMenu(); "
 	/// @description Execute Code
 	var prizeValue = global.itemDatabase[$prizeName].value;
 	
 	addMoney(prizeValue); 
-	DataManager.reduceInventoryAmount(prizeName, variant, amount);}
+	DataManager.reduceInventoryAmount(prizeName, variant, amount); 
+	UIManager.resetPrizeMenu(); 
+	UIManager.populatePrizeMenu();}
 
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
