@@ -33,6 +33,7 @@
     {"$GMObjectProperty":"v2","%Name":"playCounter","filters":[],"listItems":[],"multiselect":false,"name":"playCounter","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"gameControls","filters":[],"listItems":[],"multiselect":false,"name":"gameControls","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"prizeMenu","filters":[],"listItems":[],"multiselect":false,"name":"prizeMenu","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"currentPrizePage","filters":[],"listItems":[],"multiselect":false,"name":"currentPrizePage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

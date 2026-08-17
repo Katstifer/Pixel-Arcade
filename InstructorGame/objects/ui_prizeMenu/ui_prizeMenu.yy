@@ -30,6 +30,8 @@
     {"$GMObjectProperty":"v2","%Name":"currentPage","filters":[],"listItems":[],"multiselect":false,"name":"currentPage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"variantArray","filters":[],"listItems":[],"multiselect":false,"name":"variantArray","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"[]","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"instances","filters":[],"listItems":[],"multiselect":false,"name":"instances","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"[]","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"nextButton","filters":[],"listItems":[],"multiselect":false,"name":"nextButton","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"prevButton","filters":[],"listItems":[],"multiselect":false,"name":"prevButton","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -62,6 +62,8 @@
     {"id":{"name":"ui_playTimer","path":"objects/ui_playTimer/ui_playTimer.yy",},},
     {"id":{"name":"ui_prizeEntry","path":"objects/ui_prizeEntry/ui_prizeEntry.yy",},},
     {"id":{"name":"ui_prizeMenu","path":"objects/ui_prizeMenu/ui_prizeMenu.yy",},},
+    {"id":{"name":"ui_prizeMenuNextButton","path":"objects/ui_prizeMenuNextButton/ui_prizeMenuNextButton.yy",},},
+    {"id":{"name":"ui_prizeMenuPrevButton","path":"objects/ui_prizeMenuPrevButton/ui_prizeMenuPrevButton.yy",},},
     {"id":{"name":"ui_prizePopup","path":"objects/ui_prizePopup/ui_prizePopup.yy",},},
     {"id":{"name":"ui_replayButton","path":"objects/ui_replayButton/ui_replayButton.yy",},},
     {"id":{"name":"ui_resumeButton","path":"objects/ui_resumeButton/ui_resumeButton.yy",},},
